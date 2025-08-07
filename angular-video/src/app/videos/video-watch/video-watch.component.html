@@ -1,0 +1,17 @@
+<div class="w-[560px]" *ngIf="hasVideo && video; else notFound">
+  <iframe
+    width="560"
+    height="315"
+    [src]="videoUrl"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+  <h1 class="mt-2 text-2xl font-bold">{{ video.title }}</h1>
+</div>
+
+<ng-template #notFound>
+  <p>Not found video</p>
+</ng-template>

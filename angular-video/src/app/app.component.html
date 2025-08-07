@@ -1,0 +1,24 @@
+<nav
+  class="header fixed top-0 w-screen bg-gray-800 text-white z-50"
+  style="height: 60px"
+>
+  <div class="flex h-full container items-center mx-auto gap-8">
+    <a class="text-lg" routerLink=""> Home </a>
+    <a
+      class="text-lg"
+      routerLink="videos/create"
+      routerLinkActive="text-blue-400 underline"
+    >
+      Create
+    </a>
+  </div>
+</nav>
+
+<div
+  class="w-full flex flex-col items-center"
+  style="min-height: calc(100vh - 60px); margin-top: 60px"
+>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

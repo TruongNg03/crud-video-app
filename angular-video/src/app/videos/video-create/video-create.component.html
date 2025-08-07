@@ -1,0 +1,91 @@
+<div class="relative p-4 w-full max-h-full">
+  <!-- Modal content -->
+  <div class="relative bg-white rounded-lg shadow-sm">
+    <!-- Modal header -->
+    <div
+      class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200"
+    >
+      <h3 class="text-xl font-semibold text-gray-900">Create Video</h3>
+    </div>
+    <!-- Modal body -->
+    <div class="p-4 md:p-5 space-y-4">
+      <form
+        class="w-full mx-auto"
+        [formGroup]="createForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="mb-5">
+          <label
+            for="title"
+            class="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="New Title"
+            required
+            formControlName="title"
+          />
+          <div
+            class="text-base text-red-400"
+            *ngIf="createForm.get('title')?.errors?.['required'] && createForm.controls['title'].touched"
+          >
+            <p>Title is required</p>
+          </div>
+        </div>
+        <div class="mb-5">
+          <label
+            for="idVideo"
+            class="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Id Video
+          </label>
+          <input
+            type="text"
+            id="idVideo"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="Example: 'b3Mm4wHMtjQ' in https://www.youtube.com/watch?v=b3Mm4wHMtjQ"
+            required
+            formControlName="idVideo"
+          />
+          <div
+            class="text-base text-red-400"
+            *ngIf="createForm.get('idVideo')?.errors?.['required'] && createForm.controls['idVideo'].touched"
+          >
+            <p>Id video is required</p>
+          </div>
+        </div>
+        <div class="mb-5">
+          <label for="img" class="block mb-2 text-sm font-medium text-gray-900">
+            Link Image
+          </label>
+          <input
+            type="text"
+            id="img"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="Example: https://img-s-msn-com.akamaized"
+            required
+            formControlName="img"
+          />
+          <div
+            class="text-base text-red-400"
+            *ngIf="createForm.get('img')?.errors?.['required'] && createForm.controls['img'].touched"
+          >
+            <p>Link image is required</p>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center"
+          [disabled]="createForm.invalid"
+        >
+          Create
+        </button>
+      </form>
+    </div>
+    <!-- Modal footer -->
+  </div>
+</div>

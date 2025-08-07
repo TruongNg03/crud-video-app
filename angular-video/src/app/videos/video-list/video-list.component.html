@@ -1,0 +1,15 @@
+<div
+  class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center"
+>
+  <div class="" *ngFor="let video of videos">
+    <app-video-card
+      [video]="video"
+      [showButton]="true"
+      (deleted)="onVideoDeleted($event)"
+    ></app-video-card>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="text-2xl text-red-500 text-center">
+  {{ errorMessage }}
+</div>
