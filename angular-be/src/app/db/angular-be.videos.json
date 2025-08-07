@@ -1,0 +1,115 @@
+[{
+  "_id": {
+    "$oid": "68906fa909c38f0778333138"
+  },
+  "title": "Learn basic Angular",
+  "idVideo": "tuXVBlHUMeA",
+  "updatedAt": {
+    "$date": "2025-08-06T09:10:59.818Z"
+  },
+  "img": "https://i.ytimg.com/vi/7QNSUeUQjFQ/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBi3mttV8CjrcXDS1B-aV7KCfq7_w"
+},
+{
+  "_id": {
+    "$oid": "68907e1b30be1a05c440721c"
+  },
+  "title": "Node JS F8",
+  "idVideo": "tfQXZ8jES6A",
+  "img": "https://i.ytimg.com/vi/z2f7RHgvddc/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBPNHhLkUbAXMNx892fF7WRFDlnCw"
+},
+{
+  "_id": {
+    "$oid": "6890875e45525b18b3847af2"
+  },
+  "idVideo": "RgKAFK5djSk",
+  "title": "See you again",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2025-08-04T10:11:42.239Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-05T09:35:09.653Z"
+  },
+  "__v": 0,
+  "img": "https://i.ytimg.com/vi/RgKAFK5djSk/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBa0g_s0CQR6vF8m-oVn39ihTThzA"
+},
+{
+  "_id": {
+    "$oid": "6891af148bab02a282bb8e4d"
+  },
+  "idVideo": "jI63gkFV3ek",
+  "title": "Niji",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2025-08-05T07:13:24.449Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-05T08:17:01.009Z"
+  },
+  "__v": 0,
+  "img": "https://i.ytimg.com/vi/jI63gkFV3ek/hqdefault.jpg?sqp=-oaymwExCOADEI4CSFryq4qpAyMIARUAAIhCGAHwAQH4AdQGgALgA4oCDAgAEAEYTSBgKGUwDw==&rs=AOn4CLBUxCzNkQk1Vs_qfKu6VOaktVcBnQ"
+},
+{
+  "_id": {
+    "$oid": "6892caa8a2d560f7d7e0171e"
+  },
+  "idVideo": "VSTBflOCODg",
+  "title": " Âm nhạc thư giãn",
+  "img": "https://i.ytimg.com/vi/VSTBflOCODg/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBGWk6BAWUl16akTNQebRlGETQ7nA",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2025-08-06T03:23:20.500Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T03:23:20.500Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6892dce4a2d560f7d7e017b2"
+  },
+  "idVideo": "AfCU5DBlYNE",
+  "title": "海來阿木 - 你的萬水千山",
+  "img": "https://i.ytimg.com/vi/AfCU5DBlYNE/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLD55kcpQf0_aVCf1nokelymMRzAMQ",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2025-08-06T04:41:08.971Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T06:51:52.355Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6892fc4d81776d416dfdf18a"
+  },
+  "idVideo": "MXyspoCaQls",
+  "title": "おひるすぎ",
+  "img": "https://i.ytimg.com/vi/MXyspoCaQls/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAElV6NWtlnuFoqe5snSKL3l29NzA",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2025-08-06T06:55:09.218Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T06:55:09.218Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689327a1b3ec22f39cec84d3"
+  },
+  "idVideo": "bYWR9Ms1FSM",
+  "title": "Xomu - Tera",
+  "img": "https://i.ytimg.com/vi/bYWR9Ms1FSM/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCNhC_8aHE321MM0CwszfjA21apEA",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2025-08-06T10:00:01.716Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T10:21:39.934Z"
+  },
+  "__v": 0
+}]
