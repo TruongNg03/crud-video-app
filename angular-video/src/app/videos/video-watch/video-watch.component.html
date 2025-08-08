@@ -1,17 +1,64 @@
-<div class="w-[560px]" *ngIf="hasVideo && video; else notFound">
-  <iframe
-    width="560"
-    height="315"
-    [src]="videoUrl"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen
-  ></iframe>
-  <h1 class="mt-2 text-2xl font-bold">{{ video.title }}</h1>
+<div class="grid grid-cols-1 lg:grid-cols-3 justify-center gap-4 py-4">
+  <div
+    class="col-span-1 lg:col-span-2 h-full"
+    *ngIf="hasVideo && video; else notFound"
+  >
+    <iframe
+      class="w-full rounded-md flex-shrink-0"
+      style="aspect-ratio: 16/9"
+      [src]="videoUrl"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+
+    <h1 class="mt-2 text-2xl font-bold">{{ video.title }}</h1>
+  </div>
+
+  <div
+    class="list-videos col-span-1 lg:col-span-1 flex flex-col rounded-md border-gray-200 bg-gray-900"
+  >
+    <div
+      class="p-3 pb-0 ps-6 text-white bg-gray-800 rounded-t-md flex-shrink-0"
+    >
+      <h2 class="pb-1 text-xl font-bold">List Video</h2>
+      <p class="pb-4 text-xs opacity-50">Mixed playlists</p>
+    </div>
+
+    <div
+      class="all-videos flex-1 flex flex-col overflow-y-auto"
+      style="max-height: 480px"
+      *ngIf="hasListVideo && randomListVideos; else notFoundListVideo"
+    >
+      <div *ngFor="let video of randomListVideos">
+        <a
+          class="flex p-2 hover:bg-gray-700 cursor-pointer"
+          [routerLink]="['/videos/watch', video.idVideo]"
+          routerLinkActive="bg-gray-700"
+          (click)="onClickVideoItem(video.idVideo)"
+        >
+          <img
+            class="rounded-md"
+            src="{{ video.img }}"
+            alt="video-img"
+            style="width: 100px; aspect-ratio: 5/3"
+          />
+          <div class="px-2 text-white">
+            <p class="mb-1 text-sm font-bold">{{ video.title }}</p>
+            <p class="text-sm">旺仔小乔 - Chủ đề</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <ng-template #notFound>
-  <p>Not found video</p>
+  <p class="mt-2 text-center">Not found video</p>
+</ng-template>
+
+<ng-template #notFoundListVideo>
+  <p class="mt-2 text-white text-center">Not found list videos</p>
 </ng-template>

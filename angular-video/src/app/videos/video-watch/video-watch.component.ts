@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Video } from 'src/app/models/video';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -11,9 +13,11 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class VideoWatchComponent implements OnInit {
   video!: Video;
+  randomListVideos: Video[] = [];
   idVideo = '';
   videoUrl!: SafeResourceUrl;
   hasVideo = true;
+  hasListVideo = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -26,27 +30,74 @@ export class VideoWatchComponent implements OnInit {
 
   ngOnInit(): void {
     // get data video
-    this.apiService.getVideos({ idVideo: this.idVideo }).subscribe({
-      next: (data) => {
-        console.log('get video info from api:', data.videos[0]);
-        // not found video: return json: { msg: '.....' }
+    this.getVideosFromApi(this.idVideo).subscribe((videos) => {
+      // api return [[...]]
+      this.video = videos[0];
+      this.updateUrl(this.video.idVideo);
+      this.putVideoToFront();
+    });
+
+    this.getVideosFromApi().subscribe((videos) => {
+      // get random video
+      this.randomListVideos =
+        videos.length > 7 ? this.getRandomItems(videos, 7) : videos;
+
+      // put current video to top
+      this.putVideoToFront();
+    });
+
+    console.log(this.randomListVideos);
+  }
+
+  getVideosFromApi(searchIdVideo?: string): Observable<any[]> {
+    const filter = searchIdVideo ? { idVideo: searchIdVideo } : {};
+
+    return this.apiService.getVideos(filter).pipe(
+      map((data) => {
+        console.log(
+          `get data from getVideo...(${searchIdVideo || ''}):`,
+          data.videos
+        );
 
         if (data.msg) {
-          this.hasVideo = false;
-          return;
-        } else if (data.videos && data.videos.length) {
-          this.video = data.videos[0];
-
-          const url = `https://www.youtube.com/embed/${this.video.idVideo}`;
-          this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-        } else {
-          console.log('No video data');
+          return [];
         }
-      },
-      error: (err) => {
-        console.error('API error:', err);
-        this.hasVideo = false;
-      },
-    });
+        return data.videos && data.videos.length ? data.videos : [];
+      }),
+      catchError(() => of([]))
+    );
+  }
+
+  getRandomItems(arr: Video[], numberVideo: number): Video[] {
+    const arrayCopy = [...arr];
+
+    for (let i = arrayCopy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+    }
+
+    return arrayCopy.slice(0, numberVideo);
+  }
+
+  updateUrl(idVideo: string) {
+    const url = `https://www.youtube.com/embed/${idVideo}`;
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  onClickVideoItem(idVideo: string) {
+    console.log(idVideo);
+    this.updateUrl(idVideo);
+  }
+
+  putVideoToFront() {
+    const index = this.randomListVideos.findIndex(
+      (v) => v.idVideo === this.video.idVideo
+    );
+
+    if (index > -1) {
+      this.randomListVideos.splice(index, 1);
+    }
+
+    this.randomListVideos.unshift(this.video);
   }
 }
