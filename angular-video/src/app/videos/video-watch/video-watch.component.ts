@@ -98,6 +98,12 @@ export class VideoWatchComponent implements OnInit {
       this.randomListVideos.splice(index, 1);
     }
 
-    this.randomListVideos.unshift(this.video);
+    if (this.video !== undefined) {
+      this.randomListVideos.unshift(this.video);
+    }
+
+    //
+    this.hasListVideo = this.randomListVideos.length > 0;
+    console.log('boolean', this.hasListVideo, this.randomListVideos);
   }
 }
